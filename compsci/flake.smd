@@ -1,0 +1,86 @@
+$t. Computer Science Club THS
+$f.https://cdn-icons-png.flaticon.com/512/4703/4703650.png
+$=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
+$=flake.css
+
+&head
+$br2
+
+* BODY HEADER
+$%.header
+$%.large bold
+$!.blue JUMP|C
+$!.blue JUMP|o
+$!.blue JUMP|m
+$!.blue JUMP|p
+$!.blue JUMP|u
+$!.blue JUMP|t
+$!.blue JUMP|e
+$!.blue JUMP|r
+$%.rotate-hover
+$!.blue|Science
+$^
+$!. |Club
+$!. |&nbsp;&nbsp;&nbsp;
+$i.fa fa-laptop grad right-head
+$^
+$^
+
+*FOOTER 
+$%.foot
+$!.lgray|↓
+$^
+
+* MAIN CONTENT
+
+$%.main
+$br5
+$!.min-large intro|Hello, 
+$!.min-large intro|World
+$br1
+$!.italic intro|Welcome to the Coding Club at Tuscarora!
+$br1
+$!.italic|Leadership
+$br1
+$!.italic intro bold| President:
+$!.italic intro| Ethan Schauder
+$br1
+$!.italic intro bold| Vice President:
+$!.italic intro| Aedan Mills
+$br1
+$!.italic intro bold| Developer:
+$!.italic intro| Easton Snow
+$br9
+$#. | # Announcements
+$br1
+$!. |Meetings will be the first
+$!.blue italic|B day
+$!. | of every week in
+$!.red| L510
+$!. |at 8:45am
+$br1
+$!.blue|More coming soon...
+$br9
+$#. | # Story
+$br1
+$%.left
+$!. |if (
+$!.red|codingClub
+$!. |== 
+$!.orange|undefined
+$!. |) {
+$br1
+$!. |&nbsp;&nbsp;&nbsp;&nbsp;ethan.
+$!.blue|append
+$!. |(
+$!.red|New
+$!. |.Club );
+$br1
+$!. |}
+$^
+$br5
+$!.italic serif|Powerd by,
+$i.fa fa-snowflake-o
+$^
+
+
