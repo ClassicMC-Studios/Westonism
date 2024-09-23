@@ -1,4 +1,4 @@
-# Eastonism **the hub.**
+# Eastonism *the hub.*
 
 > *Why gitpod without a hub?*
 
@@ -7,4 +7,5 @@
 1. Boyce VA
 2. Computer Science THS
 3. Polycarp
-4. Paeonian *wip*
+4. BuskyBime
+5. Paeonian *wip*
