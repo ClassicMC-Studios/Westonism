@@ -80,6 +80,9 @@ h1,.h1{
 .lbold{
   font-weight: 700;
 }
+.right{
+  float:right;
+}
 .quote{
   padding-left:15px;
   color:gray;
