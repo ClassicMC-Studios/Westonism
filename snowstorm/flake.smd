@@ -1,0 +1,49 @@
+$t.Weston שניי
+$=./style.css
+&head
+
+$%.main
+
+$!.h1|Weston 
+$!.primary h1| שניי
+$br2
+
+$!.italic quote|"If your mind isn’t clouded by unnecessary things, then this is the best season of your life."
+$br1
+$!.italic quote|- Wu Men
+$br2
+
+$##. |Who am I?
+$!.p|A Frontend developer focused on simplicity in the web.
+$br1
+$!.p|Creator of @snojs and @guyotJs
+$br2
+
+$##. |What have I done?
+$!.p|I am a primarily a 
+$!.primary|JS
+$!. |developer, however I do dabble in 
+$!.primary|Python 
+$!. |and 
+$!.primary|TI-Basic.
+$br1
+$!.p|Big Projects:
+
+$%.line
+$!.li|1. The Guyot Project → A content dense 
+$!.primary|Retro Emulator
+$br1
+$!.li|2. SnoJS → A lightweight JS 
+$!.primary|Framework
+$br1
+$!.li|3. SnowyMD → A
+$!.primary|HTML Preprocessor
+$!. |designed to be an Empowered Markdown
+$br1
+$!.li|4. Polycarp → A Bible app style collection of the
+$!.primary|church father's
+$!. |epistles WIP
+$^
+
+
+$^
