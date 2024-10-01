@@ -6,12 +6,15 @@
   <link rel="stylesheet" href="../snowstorm/style.css">
   <title>Sno Storm</title>
 </head>
-<body data='{"count":0}'>
-  <p react>
-    Count = {{count}}
+<body data='{"count":0,"show":true}'>
+  <p reval>
+    Count = {{count+1}}
   </p>
   <button click='count++;'>Increment</button>
   <button click='count--;'>Decrement</button>
+  <p if="!show">
+    If count = 5 this will show up
+  </p>
   
   <script src="./sno-storm.js"></script>
 </body>

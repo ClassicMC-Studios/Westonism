@@ -39,6 +39,35 @@ const parseReact = () =>{
 };
 const react = parseReact();
 
+const parseReval = () => {
+  var hasReval;
+  var revals = [];
+  for(i=0;i<elements.length;i++){
+    //check for reval attr
+    hasReval = elements[i].getAttribute("reval")
+    if(hasReval != null){
+      revals.push({"elem":elements[i],"oldTxt":elements[i].innerHTML});
+    }
+  }
+  return revals;
+}
+const reval = parseReval();
+
+const parseIf = () =>{
+	var hasIf;
+  var ifs = [];
+  for(i=0;i<elements.length;i++){
+  	// Check for React attr
+  	hasIf = elements[i].getAttribute("if");
+    if(hasIf != null){
+    	// Dont push data of React attr, only elem
+    	ifs.push({"elem":elements[i],"attr":hasIf});
+    }
+  }
+  return ifs;
+};
+const ifs = parseIf();
+
 const parseClicker = () =>{
   var hasClick;
   var click = []
@@ -88,8 +117,40 @@ window.main = function(){
       }
     }
   }
+  // reval checker basically react + something, similar to the react components
+  if(reval.length > 0){
+    // reset back to the original html  
+    // for(z=0;z<reval.length;z++){
+    //   reval[q].elem.innerHTML = reval[q].oldTxt;
+    // }
+    for(i=0;i<Object.keys(data).length;i++){
+      for(q=0;q<reval.length;q++){
+        // alert("yay")
+        if(reval[q].elem.innerHTML.includes(Object.keys(data)[i])){
+          reval[q].elem.innerHTML = reval[q].oldTxt;
+          reval[q].elem.innerText = reval[q].elem.innerText.replace(`${Object.keys(data)[i]}`,`data.${Object.keys(data)[i]}`)
+          
+        }
+      }
+    }
+  }
+  // If reactor
+  if(ifs.length > 0){
+    // loop both the object and the ifs to check for equality
+    for(i=0;i<Object.keys(data).length;i++){
+      for(q=0;q<ifs.length;q++){
+        //Check if an attribute includes any valid variable
+        if(ifs[q].attr.includes(Object.keys(data)[i])){
+          // convert the attribute data from "count==5" to "data.count==5" then evaluate if its tru
+          let trueAttr = ifs[q].attr.replace(Object.keys(data)[i],`data.${Object.keys(data)[i]}`)
+          if(eval(trueAttr)){
+            ifs[q].elem.style.display = "";
+          }else{
+            ifs[q].elem.style.display = "none";
+          }
+        }
+      }
+    }
+  }
 };main();
 
-function swap(){
-  data.count ++;
-}
