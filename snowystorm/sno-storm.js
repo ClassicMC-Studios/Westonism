@@ -61,7 +61,7 @@ const parseIf = () =>{
   	hasIf = elements[i].getAttribute("if");
     if(hasIf != null){
     	// Dont push data of React attr, only elem
-    	ifs.push({"elem":elements[i],"attr":hasIf,"computed":undefined});
+    	ifs.push({"elem":elements[i],"attr":hasIf,"computed":undefined,"pre":"","post":""});
     }
   }
   return ifs;
@@ -131,13 +131,21 @@ window.main = function(){
           // if the specific reval has already been computed to its final compiler friendly form aka {{count+1}} => "data.count+1"
           if(reval[q].computed != undefined){
             // Evaluate and render
-            reval[q].elem.innerText = eval(reval[q].computed);
+            reval[q].elem.innerHTML = reval[q].elem.pre+eval(reval[q].computed)+reval[q].elem.post;
           }else{
             // if not then systematically replace {{count+1}} => data.count+1 and save the final to computed
-            reval[q].elem.innerText = reval[q].elem.innerText.replace(Object.keys(data)[i],`data.${Object.keys(data)[i]}`)
-            reval[q].elem.innerText = reval[q].elem.innerText.replace("{{",``);
-            reval[q].elem.innerText = reval[q].elem.innerText.replace("}}",``);
-            reval[q].computed = reval[q].elem.innerText
+            // for both pre and post you must rip the outside text from the element ex "hello world {{count+1}} yeah" the outside text has to go while also being saved as pre or post 
+            let preDiv = reval[q].elem.innerText.split("{")
+            let postDiv = reval[q].elem.innerText.split("}")
+            reval[q].elem.pre = preDiv[0]
+            reval[q].elem.post = postDiv[postDiv.length-1]
+            let trueTxt = preDiv[preDiv.length-1].split("}")[0]
+            trueTxt = trueTxt.replace(Object.keys(data)[i],`data.${Object.keys(data)[i]}`)
+            // reval[q].elem.innerText = trueTxt
+            // reval[q].elem.innerText = reval[q].elem.innerText.replace(Object.keys(data)[i],`data.${Object.keys(data)[i]}`)
+            // reval[q].elem.innerText = reval[q].elem.innerText.replace("{{",``);
+            // reval[q].elem.innerText = reval[q].elem.innerText.replace("}}",``);
+            reval[q].computed = trueTxt
           }
         }
       }
