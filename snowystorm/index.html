@@ -6,13 +6,17 @@
   <link rel="stylesheet" href="../snowstorm/style.css">
   <title>Sno Storm</title>
 </head>
-<body data='{"count":0,"show":true}'>
+<body data='{"count":0}'>
+  <!-- ONLY USE REVAL WITH THE VARIABLE DO NOT INCLUDE EXTRA TEXT-->
   <p reval>
-    Count = {{count+1}}
+    {{count*2}}
+  </p>
+  <p react>
+    {{count}}
   </p>
   <button click='count++;'>Increment</button>
   <button click='count--;'>Decrement</button>
-  <p if="!show">
+  <p if="count==5">
     If count = 5 this will show up
   </p>
   

@@ -61,7 +61,7 @@ const parseIf = () =>{
   	hasIf = elements[i].getAttribute("if");
     if(hasIf != null){
     	// Dont push data of React attr, only elem
-    	ifs.push({"elem":elements[i],"attr":hasIf});
+    	ifs.push({"elem":elements[i],"attr":hasIf,"computed":undefined});
     }
   }
   return ifs;
@@ -119,17 +119,26 @@ window.main = function(){
   }
   // reval checker basically react + something, similar to the react components
   if(reval.length > 0){
-    // reset back to the original html  
-    // for(z=0;z<reval.length;z++){
-    //   reval[q].elem.innerHTML = reval[q].oldTxt;
-    // }
+    // Regular loop Check for Object and iterate through reval
     for(i=0;i<Object.keys(data).length;i++){
       for(q=0;q<reval.length;q++){
-        // alert("yay")
+        // Reset the reval elem to the original
+        reval[q].elem.innerHTML = reval[q].oldTxt
+        // if it contains the specific variable continue
         if(reval[q].elem.innerHTML.includes(Object.keys(data)[i])){
-          reval[q].elem.innerHTML = reval[q].oldTxt;
-          reval[q].elem.innerText = reval[q].elem.innerText.replace(`${Object.keys(data)[i]}`,`data.${Object.keys(data)[i]}`)
-          
+          // double reset in case of errors
+          reval[q].elem.innerText = reval[q].oldTxt;
+          // if the specific reval has already been computed to its final compiler friendly form aka {{count+1}} => "data.count+1"
+          if(reval[q].computed != undefined){
+            // Evaluate and render
+            reval[q].elem.innerText = eval(reval[q].computed);
+          }else{
+            // if not then systematically replace {{count+1}} => data.count+1 and save the final to computed
+            reval[q].elem.innerText = reval[q].elem.innerText.replace(Object.keys(data)[i],`data.${Object.keys(data)[i]}`)
+            reval[q].elem.innerText = reval[q].elem.innerText.replace("{{",``);
+            reval[q].elem.innerText = reval[q].elem.innerText.replace("}}",``);
+            reval[q].computed = reval[q].elem.innerText
+          }
         }
       }
     }
