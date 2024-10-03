@@ -6,20 +6,10 @@
   <link rel="stylesheet" href="../snowstorm/style.css">
   <title>Sno Storm</title>
 </head>
-<body data='{"count":0}'>
-  <!-- ONLY USE REVAL WITH THE VARIABLE DO NOT INCLUDE EXTRA TEXT-->
-  <p reval>
-    (Count + 1) is equal to {{count+1}}
-  </p>
-  <p react>
-    {{count}} bjofwdbo
-  </p>
-  <button click='count++;'>Increment</button>
-  <button click='count--;'>Decrement</button>
-  <p if="count==5">
-    If count+1 = 6 this will show up
-  </p>
-  
+<body data='{"array":["Crazy","Simple","Perfect","Dense","Speedy","Tiny","Portable","Reactive","Lightweight"]}'></body>
+  <p exc="save(random(array.length))"></p>
+  <button click='save(random(array.length))'>What is sno?</button>
+  <p react>{{array[retrieve()]}}</p>
   <script src="./sno-storm.js"></script>
 </body>
 </html>

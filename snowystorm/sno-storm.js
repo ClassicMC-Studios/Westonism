@@ -1,4 +1,20 @@
 // SnoJS Snowstorm BETA 
+
+// inside exe usable functions
+function random(max) {
+  return Math.floor(Math.random() * max);
+}
+function toggle(name){
+	if(name){return false;}else{return true;}
+}
+
+let stored;
+function save(input){
+  stored = input;
+}
+function retrieve(){
+  return stored;
+}
 // Grab all html elements to parse later
 const getElms = () =>{
 	var z;
@@ -14,39 +30,36 @@ const elements = getElms();
 // Mark the data tag and push jsonified vars to array
 const parseData = () =>{
 	var hasDataTag, jsonified;
+  var possible = false;
+
 	for(i=0;i<elements.length;i++){
   	hasDataTag = elements[i].getAttribute("data");
     if(hasDataTag != null){
+      possible = true;
     	hasDataTag = JSON.parse(hasDataTag);
       return hasDataTag;
     }
   }
+  if(!possible){
+    hasDataTag = '{"undefined":"undefined"}';
+    hasDataTag = JSON.parse(hasDataTag);
+    return hasDataTag;
+  }
 };
 const data = parseData();
-
-const parseReact = () =>{
-	var hasReact;
-  var reacts = [];
-  for(i=0;i<elements.length;i++){
-  	// Check for React attr
-  	hasReact = elements[i].getAttribute("react");
-    if(hasReact != null){
-    	// Dont push data of React attr, only elem
-    	reacts.push({"elem":elements[i],"oldTxt":elements[i].innerHTML});
-    }
-  }
-  return reacts;
-};
-const react = parseReact();
 
 const parseReval = () => {
   var hasReval;
   var revals = [];
   for(i=0;i<elements.length;i++){
     //check for reval attr
-    hasReval = elements[i].getAttribute("reval")
+    hasReval = elements[i].getAttribute("react")
     if(hasReval != null){
       revals.push({"elem":elements[i],"oldTxt":elements[i].innerHTML});
+    }else{
+      if(elements[i].getAttribute("lint") != null){
+        revals.push({"elem":elements[i],"oldTxt":elements[i].innerHTML});
+      }
     }
   }
   return revals;
@@ -99,24 +112,25 @@ const parseClicker = () =>{
   }
   return click;
 };
-const click = parseClicker();
+let click = parseClicker();
+
+const exc = () => { 
+  var hasExc;
+  for(i=0;i<elements.length;i++){
+    hasExc = elements[i].getAttribute("exc");
+    if(hasExc != null){
+      for(q=0;q<Object.keys(data).length;q++){
+        if(hasExc.includes(Object.keys(data)[q])){
+          hasExc = hasExc.replace(Object.keys(data)[q], `data.${Object.keys(data)[q]}`);
+        }
+      }
+      eval(hasExc)
+    }
+  }
+};exc();
 
 window.main = function(){
 	requestAnimationFrame( main );
-  // Reactor: The react is structured react[0]{"elem":?,"oldTxt":""}
-  if(react.length > 0){
-  	for(i=0;i<Object.keys(data).length;i++){
-    	for(q=0;q<react.length;q++){
-      	if(react[q].oldTxt.includes(Object.keys(data)[i])){
-        	// Set the React back to original save
-
-        	react[q].elem.innerHTML = react[q].oldTxt;
-          // Replace it with the variable
-        	react[q].elem.innerText = react[q].elem.innerText.replace(`{{${Object.keys(data)[i]}}}`,Object.values(data)[i])
-        }
-      }
-    }
-  }
   // reval checker basically react + something, similar to the react components
   if(reval.length > 0){
     // Regular loop Check for Object and iterate through reval
@@ -125,7 +139,7 @@ window.main = function(){
         // Reset the reval elem to the original
         reval[q].elem.innerHTML = reval[q].oldTxt
         // if it contains the specific variable continue
-        if(reval[q].elem.innerHTML.includes(Object.keys(data)[i])){
+        if(reval[q].elem.innerHTML.includes(Object.keys(data)[i]) || reval[q].elem.innerHTML.includes("{{")){
           // double reset in case of errors
           reval[q].elem.innerText = reval[q].oldTxt;
           // if the specific reval has already been computed to its final compiler friendly form aka {{count+1}} => "data.count+1"
@@ -170,4 +184,3 @@ window.main = function(){
     }
   }
 };main();
-
