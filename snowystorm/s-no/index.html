@@ -7,15 +7,19 @@
   <link rel="stylesheet" href="https://classicmc-studios.github.io/Westonism/snowstorm/style.css">
 </head>
 <body data='{
-    "count":0
+    "count":0,
+    "view":false
   }' align="center">
   <h1 >
     Massassa<span class="primary bold">chcha</span>
   </h1>
   <p react>
-    {{Math.PI}}
+    {{count}}
   </p>
-  <button click="count+=1;">increment</button>
+  <p if="view">
+    Hello!
+  </p>
+  <button click="view=toggle(view);count+=1;">increment</button>
 
   <script src="../sno-storm.js"></script>
 </body>
