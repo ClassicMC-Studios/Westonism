@@ -1,18 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body data='{"title":"sno","count":0}'>
-  <p react>
-    a{{title}}a
-  </p>
-  <p react>
-    {{count+2}}
-  </p>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sno - More with Less</title>
+    <link rel="stylesheet" href="https://classicmc-studios.github.io/bc.css"/>
+    <style type="text/css">
+    	@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@900&family=Roboto:wght@100&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
 
-  <script src="./sno-storm.js"></script>
+        *{
+            font-family:'Open Sans',sans-serif;
+            color:white;
+        }
+        h1{
+            font-size: 60px;
+            font-family:"Merriweather";
+        }
+        h2{
+            font-family:"Merriweather";
+          
+        }
+        .sub{
+            font-family: 'Open Sans',sans-serif;
+            font-size: 20px;
+            color:gray;
+            font-style: italic;
+        }
+        p{
+            font-family: 'Open Sans',sans-serif;
+        }
+        b{
+            font-weight: 400;
+            font-family: 'Open Sans',sans-serif;
+        }
+        .item{
+            border-bottom:1px solid lightgray;
+            margin:10px;
+        }
+        .grad{
+            animation: background-pan 3s linear infinite;
+            background-image: linear-gradient(to right, lightblue,skyblue,darkblue);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            white-space: nowrap;
+            background-size: 200%;
+        }
+        a{
+            color:skyblue;
+            text-decoration: underline;
+        }
+        .true-center-with-mac{
+            display: inline-block;
+        }
+        body{
+            background-color: #2e2e2e;
+        }
+        blockquote{
+            --mar:10px;
+            display: inline-block;
+            padding: 5px;
+            border-left: 2px solid gray;
+            margin-left:var(--mar);margin-left:var(--mar);
+            font-family:"Merriweather";
+        }
+        pre code {
+          background-color: #2b2b2b;
+          border-radius: 10px;
+          display: block;
+          padding: 20px;
+          display: inline-block;
+        }
+    </style>
+</head>
+<body class="bc-text-align" data='{"title":"sno","attr":["if","react","for","data","bind","incl"],"active":"min is 3.46kb","counter":0,"what":["Crazy","Simple","Perfect","Dense","Speedy","Tiny","Portable","Reactive","Lightweight"]}'>
+    <h1 exc="save(random(what.length))">
+        <a href="#Fjall">#</a> <span id="Fjall" class="grad" lint>{{title}}</span>js
+    </h1>
+    <p class="sub">
+        More with Less
+    </p><br/>
+    <p>A new Lightweight JavaScript framework to add reactivity in a **<b>snap</b>**</p><br/>
+    <div class="bc-border true-center-with-mac">
+        <button click="save(random(what.length))" class="bc-white bc-text-black bc-p-5 bc-hover-p-10 bc-m-10 bc-r-5">What is Sno?</button>
+        <p lint>
+            {{what[retrieve()]}}
+        </p>
+    </div><br/><br/>
+    <div class="bc-border true-center-with-mac bc-p-25 bc-r-5">
+        <h2 id="with-attr"><a href="#with-attr">##</a> With Attributes Like...</h2>
+        <ol style="text-align:left;" class="bc-m-10">
+          <li class="item" react>{{attr[0]}}</li>
+          <li class="item" react>{{attr[1]}}</li>
+          <li class="item" react>{{attr[2]}}</li>
+          <li class="item" react>{{attr[3]}}</li>
+          <li class="item" react>{{attr[4]}}</li>
+          <li class="item" react>{{attr[5]}}</li>
+        </ol>
+    </div><br/><br/>
+    <h2><a href="#TINY">##</a> Absolutely <em id="TINY">TINY</em></h2>
+    <div>
+        <button click='active="src is 5.01kb"' class="bc-white bc-text-black bc-p-5 bc-hover-p-10 bc-m-5 bc-r-5">Source</button>
+        <button click='active="min is 3.46kb"' class="bc-white bc-text-black bc-p-5 bc-hover-p-10 bc-m-5 bc-r-5">Min</button>
+        <button click='active="build is 1.57kb"' class="bc-white bc-text-black bc-p-5 bc-hover-p-10 bc-m-5 bc-r-5">Build</button><br/>
+        <span>Sno</span>
+        <em lint>
+            {{active}}!!
+        </em>
+    </div><br/><br/>
+    <blockquote>
+        “If your mind isn’t clouded by unnecessary things, then this is the best season of your life.”<br/>
+        - Wu Men
+    </blockquote><br/><br/>
+    <h2 id="learn"><a href="#learn">##</a> Learn The Basics</h2><br/>
+    <p>
+        Visit the tutorial <a href="https://snojs.github.io/snojs/Sno-Basics.md">Here</a>!
+    </p><br/>
+    <h2 id="add"><a href="#add">##</a> Add Sno to your Project</h2><br/>
+    <p>
+        All you need is <b>One</b> script tag<br/>
+        Download Locally <a href="https://snojs.github.io/snojs/build/sno-min.js">Here</a><br/>
+        Run from the link with a script tag <br/><br/><pre><code>&#60;script src="https://snojs.github.io/snojs/build/sno-min.js"&#62;&#60;/script&#62;</code></pre>
+    </p><br/><br/>
+    <script type="text/javascript" src="./sno-storm.js"></script>
 </body>
-</html>
