@@ -55,10 +55,10 @@ const parseReval = () => {
     //check for reval attr
     hasReval = elements[i].getAttribute("react")
     if(hasReval != null){
-      revals.push({"elem":elements[i],"oldTxt":elements[i].innerHTML});
+      revals.push({"elem":elements[i],"oldTxt":elements[i].innerHTML,"pre":"","post":""});
     }else{
       if(elements[i].getAttribute("lint") != null){
-        revals.push({"elem":elements[i],"oldTxt":elements[i].innerHTML});
+        revals.push({"elem":elements[i],"oldTxt":elements[i].innerHTML,"pre":"","post":""});
       }
     }
   }
@@ -139,28 +139,37 @@ window.main = function(){
         // Reset the reval elem to the original
         reval[q].elem.innerHTML = reval[q].oldTxt
         // if it contains the specific variable continue
-        if(reval[q].elem.innerHTML.includes(Object.keys(data)[i]) || reval[q].elem.innerHTML.includes("{{")){
-          // double reset in case of errors
-          reval[q].elem.innerText = reval[q].oldTxt;
+        if(reval[q].oldTxt.includes(Object.keys(data)[i])){
+          
           // if the specific reval has already been computed to its final compiler friendly form aka {{count+1}} => "data.count+1"
-          if(reval[q].computed != undefined){
+          if(reval[q].computed){
             // Evaluate and render
-            reval[q].elem.innerHTML = reval[q].elem.pre+eval(reval[q].computed)+reval[q].elem.post;
+            // alert(reval[q].elem.innerText)
+            reval[q].elem.innerHTML = reval[q].pre+eval(reval[q].computed)+reval[q].post;
+            // alert(reval[q].elem.innerHTML)
           }else{
             // if not then systematically replace {{count+1}} => data.count+1 and save the final to computed
             // for both pre and post you must rip the outside text from the element ex "hello world {{count+1}} yeah" the outside text has to go while also being saved as pre or post 
             let preDiv = reval[q].elem.innerText.split("{")
             let postDiv = reval[q].elem.innerText.split("}")
-            reval[q].elem.pre = preDiv[0]
-            reval[q].elem.post = postDiv[postDiv.length-1]
+            reval[q].pre = preDiv[0]
+            reval[q].post = postDiv[postDiv.length-1]
             let trueTxt = preDiv[preDiv.length-1].split("}")[0]
             trueTxt = trueTxt.replace(Object.keys(data)[i],`data.${Object.keys(data)[i]}`)
             // reval[q].elem.innerText = trueTxt
             // reval[q].elem.innerText = reval[q].elem.innerText.replace(Object.keys(data)[i],`data.${Object.keys(data)[i]}`)
             // reval[q].elem.innerText = reval[q].elem.innerText.replace("{{",``);
             // reval[q].elem.innerText = reval[q].elem.innerText.replace("}}",``);
-            reval[q].computed = trueTxt
+
+            reval[q].computed = trueTxt;
           }
+        }
+        // just in case of multiple vars
+        if(reval[q].computed){
+          // Evaluate and render
+          // alert(reval[q].elem.innerText)
+          reval[q].elem.innerHTML = reval[q].pre+eval(reval[q].computed)+reval[q].post;
+          // alert(reval[q].elem.innerHTML)
         }
       }
     }
