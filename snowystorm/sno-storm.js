@@ -139,7 +139,7 @@ window.main = function(){
         // Reset the reval elem to the original
         reval[q].elem.innerHTML = reval[q].oldTxt
         // if it contains the specific variable continue
-        if(reval[q].oldTxt.includes(Object.keys(data)[i])){
+        if(reval[q].oldTxt.includes(Object.keys(data)[i])||reval[q].oldTxt.includes("{{")){
           
           // if the specific reval has already been computed to its final compiler friendly form aka {{count+1}} => "data.count+1"
           if(reval[q].computed){

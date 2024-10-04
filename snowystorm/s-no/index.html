@@ -3,38 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sno no Sno</title>
+  <title>Massassachcha</title>
+  <link rel="stylesheet" href="https://classicmc-studios.github.io/Westonism/snowstorm/style.css">
 </head>
-<body data='{"count":0}'>
+<body data='{
+    "count":0
+  }' align="center">
+  <h1 >
+    Massassa<span class="primary bold">chcha</span>
+  </h1>
+  <p react>
+    {{Math.PI}}
+  </p>
+  <button click="count+=1;">increment</button>
+
   <script src="../sno-storm.js"></script>
-  <script>
-    const newElem = (type, oldTxt) =>{
-      let elem = document.createElement(type);
-      elem.innerText = oldTxt;
-      document.body.appendChild(elem);
-      // const z = document.createAttribute(attrTP);
-      // attr.value = attrVal;
-      // elem.setAttributeNode(attr);
-      return elem;
-    }
-    const attribute = (type,text,elem) =>{
-      let z = document.createAttribute(type);
-      z.value = text;
-      elem.setAttributeNode(z);
-    }
-    
-    let p = newElem("p",`Count: ${data.count}!`)
-    let b = newElem("button",`increment`,"click","count+=1")
-    attribute("click","count++;",b);
-
-
-    click = parseClicker();
-    alert(click.length);
-
-    window.main = function(){
-      requestAnimationFrame( main );
-
-    };main();
-  </script>
 </body>
 </html>
