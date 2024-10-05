@@ -139,15 +139,14 @@ window.main = function(){
         // Reset the reval elem to the original
         reval[q].elem.innerHTML = reval[q].oldTxt
         // if it contains the specific variable continue
-        if(reval[q].oldTxt.includes(Object.keys(data)[i])||reval[q].oldTxt.includes("{{")){
+        if(reval[q].oldTxt.includes(Object.keys(data)[i])&&reval[q].oldTxt.includes("{{")){
           
           // if the specific reval has already been computed to its final compiler friendly form aka {{count+1}} => "data.count+1"
           if(reval[q].computed){
             // Evaluate and render
-            // alert(reval[q].elem.innerText)
             reval[q].elem.innerHTML = reval[q].pre+eval(reval[q].computed)+reval[q].post;
             // alert(reval[q].elem.innerHTML)
-          }else{
+          }else {
             // if not then systematically replace {{count+1}} => data.count+1 and save the final to computed
             // for both pre and post you must rip the outside text from the element ex "hello world {{count+1}} yeah" the outside text has to go while also being saved as pre or post 
             let preDiv = reval[q].elem.innerText.split("{")
