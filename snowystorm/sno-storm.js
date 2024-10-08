@@ -171,6 +171,27 @@ const renderIfs = () =>{
     }
   }
 }
+const parseIncl = () =>{
+
+  let hasIncl;
+  for(i=0;i<elements.length;i++){
+    hasIncl = elements[i].getAttribute("incl");
+    elem = elements[i]
+
+    if(hasIncl != null){
+      
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          if (this.status == 200) {elem.innerHTML = this.responseText;}
+        }
+      }      
+      xhttp.open("GET", hasIncl, true);
+      xhttp.send();
+      return;
+    }
+  }
+};parseIncl();
 
 window.main = function(){
 requestAnimationFrame( main );
