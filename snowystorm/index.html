@@ -23,6 +23,12 @@
             font-family:"Merriweather";
           
         }
+        #myCanvas{
+            position:fixed;
+            top:0;
+            left:0;
+            z-index:-110;
+        }
         .sub{
             font-family: 'Open Sans',sans-serif;
             font-size: 20px;
@@ -127,3 +133,50 @@
     </p><br/><br/>
     <script src="./sno-storm.js"></script>
 </body>
+
+<canvas id="myCanvas"></canvas>
+<script src="https://classicmc-studios.github.io/js/moss.js"></script>
+<script>
+	createCanvas(screen.width,screen.height);
+  bg("#242424");
+	//Snow_Particles
+  var angle = 0;
+  var W = screen.width;
+  var H = screen.height;  
+  var mp = 50;//max particles
+  var particles = [];
+  for(var i = 0; i < mp; i++){
+      particles.push({
+          x: Math.random()*W,
+          y: Math.random()*H,
+          r: Math.random()*4+1,
+          d: Math.random()*mp
+      });
+  }
+  function update(){
+    angle += 0.01;
+    for(var i = 0; i < mp; i++){
+        var p = particles[i];
+        p.y += Math.cos(angle+p.d) + 1 + p.r/2;
+        p.x += Math.sin(angle) * 2;
+        if(p.x > W+5 || p.x < -5 || p.y > H){
+            if(i%3 > 0){particles[i] = {x: Math.random()*W, y: -10, r: p.r, d: p.d};}
+            else{
+                if(Math.sin(angle) > 0){particles[i] = {x: -5, y: Math.random()*H, r: p.r, d: p.d};}
+                else{particles[i] = {x: W+5, y: Math.random()*H, r: p.r, d: p.d};}
+            }
+        }
+    }
+  }
+  function draw(){
+  	for(var i = 0; i < mp; i++){
+    	noStroke();selectColor("#ffffff");var p = particles[i];ellipse(p.x,p.y,p.r);
+     }
+     update();
+    }
+  window.main = function(){
+  	requestAnimationFrame( main )
+    bg("#242424");
+    draw();
+  };main();
+</script>
