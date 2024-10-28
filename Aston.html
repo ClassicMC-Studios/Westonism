@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="https://guyotjs.github.io/duckclear.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://guyotjs.github.io/bcss/bc.css">
+  <link rel="stylesheet" href="https://guyotjs.github.io/bcss/bc-colors.css">
+  <title>The Jensen Family</title>
+  <style>
+    body{
+      background-color: #f9f9f9;
+    }
+    .levitate:hover{
+      box-shadow: -2px -2px 12px rgba(0,0,0,0.1), 4px 4px 12px rgba(0,0,0,0.1);
+    }
+    .pre-lev{
+      box-shadow: -2px -2px 12px rgba(255,255,255,0.1), 4px 4px 12px rgba(0,0,0,0.1);
+    }
+    .m-b{
+      margin-bottom: 7px;
+    }
+    .faux-white{
+      background-color: #f9f9f9;
+    }
+    .w-full{
+      width: 100%;
+    }
+    .w-ffull{
+      width: 95%;
+    }
+  </style>
+</head>
+<body>
+  <div class="true-center">
+    <div class="p-xl pre-lev">
+      <span class="f-xl">Good <span class="sky bold">Morning!</span></span><br/><br/>
+      <form>
+        <input type="text" placeholder="Username" bind:value={unexpectedUser} class="m-b p w-ffull faux-white no-border levitate"><br/>
+        <input type="text" placeholder="Password" bind:value={unexpectedPass} class="p m-b no-border w-ffull faux-white levitate"><br/><br/>
+        <button class="no-border w-full p hover-bg-calm" on:click|preventDefault={check}>Sign In!</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
