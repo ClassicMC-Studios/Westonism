@@ -1,15 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>hi</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sno - More with Less</title>
+    <link rel="icon" type="image/x-icon" href="https://avatars.githubusercontent.com/u/149719209?s=200&v=4"/>
+    <link rel="stylesheet" href="https://guyotjs.github.io/bcss/bc.css"/>
+    <link rel="stylesheet" href="https://guyotjs.github.io/bcss/bc-colors.css"/>
+    <style type="text/css">
+    	@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@900&family=Roboto:wght@100&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+
+        *{
+            font-family:'Open Sans',sans-serif;
+            color:white;
+        }
+        h1{
+            font-size: 60px;
+            font-family:"Merriweather";
+        }
+        .bold{
+            font-weight: 900;
+        }
+        h2{
+            font-family:"Merriweather";
+          
+        }
+        .sub{
+            font-family: 'Open Sans',sans-serif;
+            font-size: 20px;
+            color:gray;
+            font-style: italic;
+        }
+        p{
+            font-family: 'Open Sans',sans-serif;
+        }
+        b{
+            font-weight: 400;
+            font-family: 'Open Sans',sans-serif;
+        }
+        .item{
+            border-bottom:1px solid lightgray;
+            margin:10px;
+        }
+        .grad{
+            animation: background-pan 3s linear infinite;
+            background-image: linear-gradient(to right, lightblue,skyblue,darkblue);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            white-space: nowrap;
+            background-size: 200%;
+        }
+        a{
+            color:skyblue;
+            text-decoration: underline;
+        }
+        .inline-block{
+            display: inline-block;
+        }
+        body{
+            background-color: #2e2e2e;
+        }
+        blockquote{
+            --mar:10px;
+            display: inline-block;
+            padding: 5px;
+            border-left: 2px solid gray;
+            margin-left:var(--mar);margin-left:var(--mar);
+            font-family:"Merriweather";
+        }
+        pre code {
+        -webkit-backdrop-filter: blur(5px);
+        backdrop-filter: blur(5px); 
+        border: 1px solid gray;
+          border-radius: 10px;
+          display: block;
+          padding: 20px;
+          display: inline-block;
+        }
+        .light-bold{
+            font-weight: 600;
+        }
+        #myCanvas{
+            position: fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            z-index:-110;
+        }
+        .bg-filt{
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+        }
+    </style>
 </head>
-<body data='{"arr":["gi"],"val":""}'>
-  <ol for="arr" item="li"></ol>
-  <p react>{{val}}</p>
-  <input type="text" bind="val">
-  <button onclick="$('arr.push(val)')">+</button>
-  <script src="./sno-flake.js"></script>
+<body class="text-center" data='{
+    "title":"sno",
+    "version":"snostorm",
+    "describe":["Crazy","Simple","Perfect","Dense","Speedy","Tiny","Portable","Reactive","Lightweight"],
+    "att":["if","react","for","bind","exc","incl"],
+    "size":"min is 4.38kb"
+}'>
+   <h1 id="#sno" react>
+        <a href="#sno" >#</a> <span class="grad">{{title}}</span>js
+   </h1>
+   <p class="sub">
+    Ex Glande Quercus
+   </p><br/>
+   <p>
+    "Building the web, <span class="grad bold">your way.</span>"
+   </p><br/>
+   <div class="border-gray r inline-block p bg-filt" exc="save(random(describe.length))">
+        <button class="bg-white black hover-bg-calm m r light-bold sans no-border p" onclick='$("save(random(describe.length))")'>
+            What is Sno?
+        </button><br/>
+        <span react>
+            {{describe[retrieve()]}}
+        </span>
+   </div><br/><br/>
+   <div>
+    <div class="border-gray r inline-block p bg-filt">
+        <h2 class="m"><span class="grad">##</span> With Attributes Like...</h2>
+        <ol for="att" item="li" class="m-m" item-class="item text-left "></ol>
+    </div>
+   </div><br/>
+    <h2 class="m"><span class="grad">##</span> Absolutely <em>Tiny</em>...</h2>
+    <button class="bg-white black hover-bg-calm m r light-bold sans no-border p" onclick='$("size = \"source is 7.9kb\"")'>Source</button>
+    <button class="bg-white black hover-bg-calm m r light-bold sans no-border p" onclick='$("size = \"min is 4.38kb\"")'>Min</button>
+    <button class="bg-white black hover-bg-calm m r light-bold sans no-border p" onclick='$("size = \"build is 1.5kb\"")'>Build</button>
+    <p>
+        Sno <em react>{{size}}</em>!!
+    </p><br/>
+    <blockquote>
+        “If your mind isn’t clouded by unnecessary things, then this is the best season of your life.”<br/>
+        - Wu Men
+    </blockquote><br/><br/>
+    <h2 class="m"><span class="grad">##</span> Add Sno to Your Project...</h2><br/>
+    <p>
+        All you need is One script tag<br/>
+        Download Locally Here<br/>
+        Run from the link with a script tag<br/>
+    </p><br/>
+    <pre><code>&#60;script src="https://snojs.github.io/snojs/build/sno-min.js"&#62;&#60;/script&#62;</code></pre>
+    <br/><br/><br/><br/>
+    <canvas id="myCanvas"></canvas>
+    <script src="https://classicmc-studios.github.io/js/moss.js"></script>
+    <script>
+    createCanvas(screen.width,screen.height);
+    let cv = document.getElementById("myCanvas");
+    bg("#242424");
+        //Snow_Particles
+    var angle = 0;
+    var W = screen.width;
+    var H = screen.height;  
+    var mp = 100;//max particles
+    var particles = [];
+    for(var i = 0; i < mp; i++){
+        particles.push({
+            x: Math.random()*W,
+            y: Math.random()*H,
+            r: Math.random()*4+1,
+            d: Math.random()*mp
+        });
+    }
+    function update(){
+        angle += 0.01;
+        for(var i = 0; i < mp; i++){
+            var p = particles[i];
+            p.y += Math.cos(angle+p.d) + 1 + p.r/2;
+            p.x += Math.sin(angle) * 2;
+            if(p.x > W+5 || p.x < -5 || p.y > H){
+                if(i%3 > 0){particles[i] = {x: Math.random()*W, y: -10, r: p.r, d: p.d};}
+                else{
+                    if(Math.sin(angle) > 0){particles[i] = {x: -5, y: Math.random()*H, r: p.r, d: p.d};}
+                    else{particles[i] = {x: W+5, y: Math.random()*H, r: p.r, d: p.d};}
+                }
+            }
+        }
+    }
+    function draw(){
+        bg("#242424");
+        for(var i = 0; i < mp; i++){
+            noStroke();selectColor("#ffffff");var p = particles[i];ellipse(p.x,p.y,p.r);
+        }
+        update();
+        requestAnimationFrame(draw);
+    }
+    requestAnimationFrame(draw);
+    </script>
+    <script src="./sno-flake.js"></script>
 </body>
-</html>
