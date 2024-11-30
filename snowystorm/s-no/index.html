@@ -103,7 +103,8 @@
     "version":"snostorm",
     "describe":["Crazy","Simple","Perfect","Dense","Speedy","Tiny","Portable","Reactive","Lightweight"],
     "att":["if","react","for","bind","exc","incl"],
-    "size":"min is 4.38kb"
+    "size":"min is 4.38kb",
+    "updator":0
 }'>
    <h1 id="#sno" react>
         <a href="#sno" >#</a> <span class="grad">{{title}}</span>js
@@ -114,12 +115,12 @@
    <p>
     "Building the web, <span class="grad bold">your way.</span>"
    </p><br/>
-   <div class="border-gray r inline-block p bg-filt" exc="save(random(describe.length))">
-        <button class="bg-white black hover-bg-calm m r light-bold sans no-border p" onclick='$("save(random(describe.length))")'>
+   <div class="border-gray r inline-block p bg-filt" exc="updator = random(describe.length)">
+        <button class="bg-white black hover-bg-calm m r light-bold sans no-border p" onclick='$("updator = random(describe.length)")'>
             What is Sno?
         </button><br/>
         <span react>
-            {{describe[retrieve()]}}
+            {{describe[updator]}}
         </span>
    </div><br/><br/>
    <div>
@@ -144,12 +145,16 @@
         All you need is One script tag<br/>
         Download Locally Here<br/>
         Run from the link with a script tag<br/>
+        ↓ Click to Copy ↓<br/>
     </p><br/>
-    <pre><code>&#60;script src="https://snojs.github.io/snojs/build/sno-min.js"&#62;&#60;/script&#62;</code></pre>
+    <pre><code onclick="copy(`<script src='https://snojs.github.io/snojs/build/sno-min.js'></script>`)">&#60;script src="https://snojs.github.io/snojs/build/sno-min.js"&#62;&#60;/script&#62;</code></pre>
     <br/><br/><br/><br/>
     <canvas id="myCanvas"></canvas>
     <script src="https://classicmc-studios.github.io/js/moss.js"></script>
     <script>
+      function copy(id){
+        navigator.clipboard.writeText(id);
+      }
     createCanvas(screen.width,screen.height);
     let cv = document.getElementById("myCanvas");
     bg("#242424");

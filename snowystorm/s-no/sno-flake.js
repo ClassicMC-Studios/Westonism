@@ -1,19 +1,13 @@
 // SnoJS Snoflake
 // Changes => Nothing is looping, it only updates on variable change. etc..
 // click is no loger a valid attribute now use browser supported onclick='$("count++;")'
+// trash stored and retrieve
 
 function random(max) {
   return Math.floor(Math.random() * max);
 }
 function toggle(name){
 if(name){return false;}else{return true;}
-}
-let stored;
-function save(input){
-  stored = input;
-}
-function retrieve(){
-  return stored;
 }
 // Grab all html elements to parse later
 const getElms = () =>{
