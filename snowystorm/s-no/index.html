@@ -3,24 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Massassachcha</title>
-  <link rel="stylesheet" href="style.css">
+  <title>hi</title>
 </head>
-<body data='{
-    "count":0,
-    "view":false
-  }' align="center">
-  <h1 >
-    Massassa<span class="primary">chcha</span>
-  </h1>
-  <p react>
-    {{count}}
-  </p>
-  <p if="view">
-    Hello!
-  </p>
-  <button click="view=toggle(view);count+=1;">increment</button>
-
-  <script src="../sno-storm.js"></script>
+<body data='{"arr":["gi"],"val":""}'>
+  <ol for="arr" item="li"></ol>
+  <p react>{{val}}</p>
+  <input type="text" bind="val">
+  <button onclick="$('arr.push(val)')">+</button>
+  <script src="./sno-flake.js"></script>
 </body>
 </html>
