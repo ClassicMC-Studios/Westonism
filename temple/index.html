@@ -1,0 +1,41 @@
+<script>
+function tokenize(input) { 
+const tokens = [];
+const patterns = [
+    { regex: /^<script>/, type: "TAG_OPEN" },
+    { regex: /^<\/script>/, type: "TAG_CLOSE" },
+    { regex: /^<h1>/, type: "TAG_OPEN" },
+    { regex: /^<\/h1>/, type: "TAG_CLOSE" },
+    { regex: /^let/, type: "KEYWORD" },
+    { regex: /^[a-zA-Z_][a-zA-Z0-9_]*/, type: "IDENTIFIER" },
+    { regex: /^=|;/, type: "PUNCTUATION" },
+    { regex: /^"(.*?)"|^'(.*?)'/, type: "LITERAL_STRING" }, // Match anything in single or double quotes
+    { regex: /^[0-9]+/, type: "LITERAL_NUMBER" },
+    { regex: /^{{/, type: "TEMPLATE_START" },
+    { regex: /^}}/, type: "TEMPLATE_END" },
+];
+
+while (input.length > 0) {
+    let match = false;
+
+    for (const { regex, type } of patterns) {
+        const result = regex.exec(input);
+        if (result) {
+            tokens.push({ value: result[0], type });
+            input = input.slice(result[0].length).trim();
+            match = true;
+            break;
+        }
+    }
+
+    if (!match) {
+        throw new Error("Unexpected token: " + input[0]);
+    }
+}
+
+return tokens;
+    }
+let i = `let count = 0;`
+console.log(tokenize(i))
+
+</script>
