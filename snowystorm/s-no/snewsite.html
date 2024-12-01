@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sno.js</title>
+  <link rel="stylesheet" href="https://guyotjs.github.io/bcss/bc.css">
+  <link rel="stylesheet" href="https://guyotjs.github.io/bcss/bc-colors.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
+    body{
+      margin:0;
+      padding:0;
+      overflow-x: hidden;
+    }
+    .f-xxl{
+      font-size: 80px;
+    }
+    .f-respond{
+      font-size: 17px;
+      white-space: nowrap;
+    }
+    .fw-strong{
+      font-weight: 900;
+    }
+    .border-light{
+      border: 1px solid lightgray;
+    }
+    .border-right-light{
+      border-right: 1px solid lightgray;
+    }
+    .border-bottom-light{
+      border-bottom: 1px solid lightgray;
+    }
+    .plr-l{
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+    .karla{
+      font-family: "Karla";
+    }
+    .dark-sky{
+      color:rgb(63, 144, 176);
+    }
+    .grad{
+      background-image: linear-gradient(to right, lightblue,rgb(230, 124, 230));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      white-space: nowrap;
+      background-size: 200%;
+    }
+    .bg-grad{
+      background-image: linear-gradient(to right, lightblue,rgb(230, 124, 230));
+      background-color: rgba(255,255,255,0.7);
+      background-blend-mode: lighten;
+    }
+    .w-full{
+      position: absolute;
+      left:0;
+      width: 93.5%;
+    }
+  </style>
+</head>
+<body data='{
+  "count":0
+}'>
+  <div class=" p-m">
+    <a href="https://github.com/snojs/snojs" class="m-m dark-sky">Docs</a>
+    <a href="https://github.com/snojs">
+      <i class="fa-lg fa m-m fa-github"></i>
+    </a>
+  </div>
+  <div class="text-center m-m">
+    <p class="f-xxl karla fw-strong bold"><span class="grad fw-strong karla">Sno</span>.js</p><br/>
+    <p>Building the web <span class="grad karla fw-strong">{ your way }.</span></p>
+  </div><br/><br/>
+  <div class="text-center m-m" computer>
+    <div class="grid-2 left-center border-light r">
+      <div class="border-right-light">
+        <div class="plr-l f-respond p-m text-left karla">
+          <span class="gray">1|</span> &lt;body data='{"count":0}'&gt;<br/>
+          <span class="gray">2|</span> &emsp;&lt;p react&gt;{{count}}&lt;/p&gt;<br/>
+          <span class="gray">3|</span> &emsp;&lt;button onclick='$("count++")'&gt;+&lt;/button&gt;<br/>
+          <span class="gray">4|</span> &emsp;&lt;script src="./sno.js"&gt;&lt;/script&gt;<br/>
+          <span class="gray">5|</span> &lt;/body&gt;<br/>
+        </div>
+      </div>
+      <div class="plr-l p-m" style="margin-top:15px;">
+        <p react>{{count}}</p>
+        <button class="p border-light gray bg-white r m" onclick='$("count++;")'>+</button>
+      </div>
+    </div>
+  </div>
+  <div class="text-center m-m" mobile>
+    <div class="left-center border-light r">
+      <div class="border-bottom-light">
+        <div class="plr-l f-respond p-m text-left karla">
+          <span class="gray">1|</span> &lt;body data='{"count":0}'&gt;<br/>
+          <span class="gray">2|</span> &emsp;&lt;p react&gt;{{count}}&lt;/p&gt;<br/>
+          <span class="gray">3|</span> &emsp;&lt;button onclick='$("count++")'&gt;+&lt;/button&gt;<br/>
+          <span class="gray">4|</span> &emsp;&lt;script src="./sno.js"&gt;&lt;/script&gt;<br/>
+          <span class="gray">5|</span> &lt;/body&gt;<br/>
+        </div>
+      </div>
+      <div class="p">
+        <p react>{{count}}</p>
+        <button class="p border-light gray bg-white r m" onclick='$("count++;")'>+</button>
+      </div>
+    </div>
+  </div><span mobile><br/><br/><br/></span><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+  <div class="text-center karla">
+    <p class="karla f-l">Add <span class="grad fw-strong">Sno</span> to Your Project...</p><br/>
+    All you need is <strong>One</strong> script tag <br/>
+    Download Locally <a href="https://snojs.github.io/snojs-beta/snoflake.js" download class="dark-sky">Here</a><br/>
+    Run from the link with a script tag<br/>
+    ↓ Click to Copy ↓<br/>
+    <div class="p-m border-light r m-m" style="display:inline-block;" onclick="copy('<script src=\'https://snojs.github.io/snojs/build/sno-min.js\'></script>')">
+      &#60;script src="https://snojs.github.io/snojs/build/sno-min.js"&#62;&#60;/script&#62;
+    </div>
+  </div><br/><br/><br/>
+  <div class="karla bg-grad p-xl text-center footer">
+    "Have nothing in your house that you do not know to be useful, or believe to be beautiful."<br/>
+    - William Morris
+  </div>
+  <script>
+    function copy(id){
+      navigator.clipboard.writeText(id);
+    }
+  </script>
+  <script src="./sno-flake.js"></script>
+</body>
+</html>
