@@ -12,6 +12,7 @@ const patterns = [
     { regex: /^<h1>/, type: "H1" },
     { regex: /^<\/h1>/, type: "H1_END" },
     { regex: /^{{(.*?)}}/, type: "REACTIVE_EXPRESSION" },
+    { regex: /^\p{P}/u, type: "PUNC"},
 ];
 
 while (input.length > 0) {
@@ -34,12 +35,13 @@ while (input.length > 0) {
 
 return tokens;
     }
-let i = `<script>let count = "hwl"; let hi = 0;</script><h1> Count {{count}} and Hi {{hi}} </h1>`
+let i = `<h1> {{count}}...{{str}} </h1><script>let count = 0; let str = "hello";</script>`
 let tokend = tokenize(i);
 let finalHTML = ""
 let addVar = false;
 let varToAdd = "";
-console.log(tokend)
+let varValue;
+// console.log(tokend)
 for(let i=0;i<tokend.length;i++){
   if(tokend[i].type == "SCRIPT"){
     finalHTML+="<script>\n"
@@ -50,14 +52,18 @@ for(let i=0;i<tokend.length;i++){
   if(tokend[i].type == "H1"){
     finalHTML+="<h1>"
   }
-  if(tokend[i].type == "STRING"){
+  if(tokend[i].type == "STRING" && addVar){
     finalHTML+=tokend[i].value
+    varValue = tokend[i].value
   }
-  if(tokend[i].type == "TEXT"){
+  if(tokend[i].type == "TEXT" && !addVar){
     finalHTML+=` ${tokend[i].value}`
   }
+  if(tokend[i].type == "PUNC" && !addVar){
+    finalHTML+=`${tokend[i].value}`
+  }
   if(tokend[i].type == "REACTIVE_EXPRESSION"){
-    finalHTML+=`<span id="${varToAdd}"></span>`
+    finalHTML+=`<span id="${tokend[i].value.replace("{{","").replace("}}","")}"></span>`
   }
   if(tokend[i].type == "H1_END"){
     finalHTML+="</h1>"
@@ -74,10 +80,11 @@ for(let i=0;i<tokend.length;i++){
     finalHTML+=" = "
   }
   if(tokend[i].type == "NUMBER" && addVar){
+    varValue = tokend[i].value
     finalHTML+=tokend[i].value
   }
   if(tokend[i].type == "ENDING" && addVar){
-    finalHTML+=`;\ndocument.getElementById(${varToAdd});\n`;
+    finalHTML+=`;\ndocument.getElementById("${varToAdd}").innerText = ${varValue};\n`;
     addVar = false;
   }
   // console.log(finalHTML)
