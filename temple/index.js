@@ -35,7 +35,7 @@ while (input.length > 0) {
 
 return tokens;
     }
-let i = `<h1> {{count}}...{{str}} </h1><script>let count = 0; let str = "hello";</script>`
+let i = `<h1>Count:{{count}}</h1><script>let count = 0;</script>`
 let tokend = tokenize(i);
 let finalHTML = ""
 let addVar = false;
@@ -57,7 +57,7 @@ for(let i=0;i<tokend.length;i++){
     varValue = tokend[i].value
   }
   if(tokend[i].type == "TEXT" && !addVar){
-    finalHTML+=` ${tokend[i].value}`
+    finalHTML+=`${tokend[i].value}`
   }
   if(tokend[i].type == "PUNC" && !addVar){
     finalHTML+=`${tokend[i].value}`
