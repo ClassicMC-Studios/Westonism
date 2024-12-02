@@ -21,8 +21,8 @@ const Oden = {
       	findVar.push(this.observe[i][1],i);
       }
     }
-    newVar = findVar.toString() += change;
-    alert(newVar)
+    newVar = findVar[0].toString() += change;
+    this.observe[findVar[1]][1] = eval(newVar);
   }
 }
 
