@@ -1,0 +1,14 @@
+<input type="text" id="b">
+<div id="app"></div>
+<!-- <input id="bind"></input> -->
+<!-- <button onclick="add()">save</button> -->
+<script src="./oden.js"></script>
+<script>
+Oden.$("val","");
+Oden.$bind("val","b");
+Oden.createListener(()=>{
+  return `
+    <h1>${Oden.$get("val")}</h1>
+  `
+},"app")
+</script>

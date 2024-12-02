@@ -73,6 +73,7 @@ const Oden = {
     elem.addEventListener('input',function(evt){
       setTimeout(()=>{
         Oden.observe[findVar[1]][1] = elem.value
+        Oden.reListen()
       },0)
     });
   },
