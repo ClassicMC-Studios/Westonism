@@ -7,8 +7,6 @@
 Oden.$("val","");
 Oden.$bind("val","b");
 Oden.createListener(()=>{
-  return `
-    <h1>${Oden.$get("val")}</h1>
-  `
+  return Oden.$get("val");
 },"app")
 </script>
