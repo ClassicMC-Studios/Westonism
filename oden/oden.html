@@ -1,14 +1,23 @@
 <div id="app"></div>
-<div id="tapp"></div>
+<!-- <input id="bind"></input> -->
+<!-- <button onclick="add()">save</button> -->
 <script src="./oden.js"></script>
 <script>
-Oden.$("arr",["hi","die"])
-
+Oden.$("arr",["hi","die","kill","murder"])
+// Oden.$("val","");
+// Oden.$bind("val","bind")
+function remove(index){
+  Oden.$splice("arr",index);
+}
+function add(val){
+  Oden.$push("arr",val)
+}
 Oden.createListener(()=>{
   return `
     <ol>
-    ${Oden.for("arr","<li>{{arr}}</li>")}
+      ${Oden.for("arr","<li id='{{$i}}'>{{arr}}&emsp;<button onclick='remove({{$i}})'>del</button></li>")}
     </ol>
+    <button onclick="add(prompt('What to add??').toString())">add</button>
   `
 }, "app");
 </script>
