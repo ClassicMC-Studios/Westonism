@@ -28,6 +28,7 @@ const Oden = {
 
 Oden.$("count",1)
 Oden.$set("count","+10");
+Oden.$get("count");
 
 /* function App(){
   return [count]; 
