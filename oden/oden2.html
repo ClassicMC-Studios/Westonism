@@ -1,12 +1,20 @@
-<input type="text" id="b">
 <div id="app"></div>
-<!-- <input id="bind"></input> -->
-<!-- <button onclick="add()">save</button> -->
 <script src="./oden.js"></script>
 <script>
-Oden.$("val","");
-Oden.$bind("val","b");
+Oden.$("count",0);
+function add(){
+  Oden.$math("count","+1");
+}
 Oden.createListener(()=>{
-  return Oden.$get("val");
+  return `
+    <p>Count: ${Oden.$get("count")}</p>
+    <button onclick="add()">add</button>
+  `;
 },"app")
 </script>
+
+<div data='{"count":0}'>
+  <p react>Count: {{count}}</p>
+  <button onclick='$("count++")'>add</button>
+</div>
+<script src="https://snojs.github.io/sno/sno.js"></script>

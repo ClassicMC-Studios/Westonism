@@ -1,0 +1,10 @@
+<h1 id="app"></h1>
+<button onclick="setCount(count()+1)">+</button>
+<script src="./faux.js"></script>
+<script>
+  let [count, setCount] = useState(0);
+  
+  render(()=>{
+  	return count()
+  },"app");
+</script>
