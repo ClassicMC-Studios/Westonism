@@ -1,0 +1,14 @@
+<div id="app"></div>
+<div id="tapp"></div>
+<script src="./oden.js"></script>
+<script>
+Oden.$("arr",["hi","die"])
+
+Oden.createListener(()=>{
+  return `
+    <ol>
+    ${Oden.for("arr","<li>{{arr}}</li>")}
+    </ol>
+  `
+}, "app");
+</script>
