@@ -64,17 +64,16 @@ const renderFors = () =>{
     // clears every container from any previous children
     fors[i].elem.innerHTML = ''
     // create an item for each item in the array based on whats in the for attr
-    let newItem;
-    let itemClass = fors[i].elem.getAttribute("item-class");
+    let newItem = "";
     let itemType = fors[i].elem.getAttribute("item");
     // arr just shows the actually array name;
     let arr = fors[i].attr; // always use data[arr] not just arr
     for(q=0;q<data[arr].length;q++){
-      newItem = document.createElement(itemType);
-      newItem.classList = itemClass;
-      newItem.innerHTML = data[arr][q];
-      fors[i].elem.appendChild(newItem)
+      newItem += itemType.replaceAll("{{item}}",data[arr][q]).replaceAll("{{i}}",q);
+      // newItem += data[arr][q];
     }
+    
+    fors[i].elem.innerHTML = newItem;
   }
 };
 const renderIfs = () =>{
@@ -268,7 +267,7 @@ const $ = (change) =>{
   // this is the new click and in script tag modification function
   for(let i=0;i<Object.keys(data).length;i++){
     if(update.includes(Object.keys(data)[i])){
-      update = update.replace(Object.keys(data)[i],`data.${Object.keys(data)[i]}`);
+      update = update.replaceAll(Object.keys(data)[i],`data.${Object.keys(data)[i]}`);
     }
   }
   eval(update);

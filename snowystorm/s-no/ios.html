@@ -4,21 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Snoflake</title>
-  <link rel="stylesheet" href="https://guyotjs.github.io/bcss/bc.css">
-  <style>
-    .opacity{
-      opacity: 0.2;
-    }
-    .opacity:hover{
-      box-shadow: 0px 0px 15px rgba(0, 0, 0, 1);
-    }
-  </style>
 </head>
-<body data='{"count":0}'>
-  <div class="text-center true-center">
-    <p class="f-l" react>{{count}}</p>
-    <button onclick="$('count++;')" class="m p r opacity border bg-white">+</button>
-  </div>
+<body data='{"arr":["a","b","c","d"]}'>
+  <ol for="arr" item="
+    <li>{{item}}</li>
+    <button onclick='$(`arr.splice({{i}},1)`)'>-</button>
+  "></ol>
   <script src="./sno-flake.js"></script>
 </body>
 </html>
