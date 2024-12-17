@@ -1,6 +1,6 @@
-# Westonism *[the hub.](#)*
+# Westonism *[the point.](#)*
 
-> *Why gitpod without a hub?*
+> *Why gitpod without a source?*
 
 ### Projects Contained
 
